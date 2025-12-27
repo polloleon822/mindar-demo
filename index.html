@@ -1,35 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<title>MindAR Fullscreen Fix</title>
-<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+<meta charset="UTF-8">
+<title>MindAR FIX FINAL</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-<!-- A-Frame -->
 <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-
-<!-- MindAR -->
 <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 
 <style>
 html, body {
   margin: 0;
   padding: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
-  background: black;
+  background: transparent;
 }
 
-/* A-Frame canvas */
-a-scene, canvas {
-  position: fixed !important;
-  inset: 0;
-  width: 100vw !important;
-  height: 100vh !important;
-}
-
-/* VIDEO DE LA CÁMARA */
+/* VIDEO DE CÁMARA */
 video {
   position: fixed !important;
   top: 0;
@@ -37,6 +26,18 @@ video {
   width: 100vw !important;
   height: 100vh !important;
   object-fit: cover !important;
+  z-index: 0 !important;
+}
+
+/* CANVAS WEBGL */
+canvas {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 1 !important;
+  background: transparent !important;
 }
 
 /* Ocultar UI extra */
@@ -54,7 +55,7 @@ video {
   embedded
   vr-mode-ui="enabled: false"
   device-orientation-permission-ui="enabled: false"
-  renderer="antialias: true; alpha: true; physicallyCorrectLights: true">
+  renderer="alpha: true; antialias: true; physicallyCorrectLights: true">
 
   <a-assets>
     <a-asset-item id="modelo" src="modelo.glb"></a-asset-item>
@@ -68,10 +69,7 @@ video {
     </a-gltf-model>
   </a-entity>
 
-  <a-camera
-    position="0 0 0"
-    look-controls="enabled: false">
-  </a-camera>
+  <a-camera look-controls="enabled: false"></a-camera>
 
 </a-scene>
 
