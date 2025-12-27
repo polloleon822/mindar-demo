@@ -1,51 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>MindAR Image Trigger</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<title>MindAR Fullscreen Fix</title>
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
 
-  <!-- A-Frame -->
-  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+<!-- A-Frame -->
+<script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
 
-  <!-- MindAR -->
-  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+<!-- MindAR -->
+<script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: black;
-    }
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: black;
+}
 
-    a-scene {
-      position: fixed;
-      inset: 0;
-    }
+/* A-Frame canvas */
+a-scene, canvas {
+  position: fixed !important;
+  inset: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+}
 
-    /* Ocultamos SOLO botones, no el overlay base */
-    .a-enter-vr,
-    .a-orientation-modal {
-      display: none !important;
-    }
-  </style>
+/* VIDEO DE LA CÁMARA */
+video {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  object-fit: cover !important;
+}
+
+/* Ocultar UI extra */
+.a-enter-vr,
+.a-orientation-modal {
+  display: none !important;
+}
+</style>
 </head>
 
 <body>
 
 <a-scene
-  mindar-image="imageTargetSrc: targets.mind; 
-                uiScanning: yes; 
-                uiLoading: yes; 
-                filterMinCF: 0.001; 
-                filterBeta: 10;"
+  mindar-image="imageTargetSrc: targets.mind; uiScanning: yes; uiLoading: yes;"
   embedded
   vr-mode-ui="enabled: false"
   device-orientation-permission-ui="enabled: false"
-  renderer="colorManagement: true; physicallyCorrectLights: true">
+  renderer="antialias: true; alpha: true; physicallyCorrectLights: true">
 
   <a-assets>
     <a-asset-item id="modelo" src="modelo.glb"></a-asset-item>
@@ -55,16 +64,13 @@
     <a-gltf-model
       src="#modelo"
       position="0 0 0"
-      scale="0.5 0.5 0.5"
-      animation="property: rotation; to: 0 360 0; loop: true; dur: 8000">
+      scale="0.5 0.5 0.5">
     </a-gltf-model>
   </a-entity>
 
-  <!-- CÁMARA CORRECTA -->
   <a-camera
     position="0 0 0"
-    look-controls="enabled: false"
-    camera="active: true">
+    look-controls="enabled: false">
   </a-camera>
 
 </a-scene>
