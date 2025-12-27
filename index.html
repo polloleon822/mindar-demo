@@ -8,15 +8,19 @@
 
 <body style="margin:0; overflow:hidden;">
 
-<a-scene
-  mindar-image="imageTargetSrc: targets.mind;"
-  vr-mode-ui="enabled: false">
-
+<a-scene mindar-image="imageTargetSrc: targets.mind;" vr-mode-ui="enabled: false">
+  
   <a-entity mindar-image-target="targetIndex: 0">
-    <a-box color="red" position="0 0 0"></a-box>
+    <!-- Modelo 3D -->
+    <a-entity 
+        gltf-model="url(modelo.glb)" 
+        scale="0.5 0.5 0.5" 
+        position="0 0 0"
+        rotation="0 0 0">
+    </a-entity>
   </a-entity>
 
-  <a-camera></a-camera>
+  <a-camera mindar-image-camera></a-camera>
 
 </a-scene>
 
