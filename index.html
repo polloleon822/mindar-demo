@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>MindAR FIX FINAL</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>MindAR Stable</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
@@ -18,30 +18,17 @@ html, body {
   background: black;
 }
 
-video, canvas, a-scene {
-  position: fixed !important;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: auto !important;
-  height: auto !important;
-}
-
-/* Evita bordes blancos en Chrome */
-body::after {
-  content: "";
+/* SOLO el scene */
+a-scene {
   position: fixed;
   inset: 0;
-  background: black;
-  z-index: -1;
 }
 
+/* NO tocar video ni canvas */
 .a-enter-vr,
 .a-orientation-modal {
   display: none !important;
 }
-
 </style>
 </head>
 
@@ -52,7 +39,7 @@ body::after {
   embedded
   vr-mode-ui="enabled: false"
   device-orientation-permission-ui="enabled: false"
-  renderer="alpha: true; antialias: true; physicallyCorrectLights: true">
+  renderer="alpha: true; antialias: true">
 
   <a-assets>
     <a-asset-item id="modelo" src="modelo.glb"></a-asset-item>
