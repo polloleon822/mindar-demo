@@ -13,13 +13,14 @@
   <!-- Target de imagen -->
   <a-entity mindar-image-target="targetIndex: 0">
     
-    <!-- Modelo 3D centrado sobre el target -->
-    <a-entity 
-        gltf-model="url(modelo.glb)" 
-        scale="10 10 10"   <!-- Ajusta según el tamaño del modelo -->
-        position="0 0 0"          <!-- Centrado sobre la imagen -->
-        rotation="0 180 0">
-    </a-entity>
+    <!-- Cubo centrado sobre el target -->
+    <a-box 
+        color="red" 
+        depth="0.2" 
+        height="0.2" 
+        width="0.2" 
+        position="0 0 0">
+    </a-box>
     
   </a-entity>
 
