@@ -10,21 +10,19 @@
 
 <a-scene mindar-image="imageTargetSrc: targets.mind;" vr-mode-ui="enabled: false">
   
-  <!-- Target de imagen -->
   <a-entity mindar-image-target="targetIndex: 0">
     
-    <!-- Cubo centrado sobre el target -->
+    <!-- Cubo pequeño centrado sobre el target -->
     <a-box 
         color="red" 
-        depth="0.2" 
-        height="0.2" 
-        width="0.2" 
-        position="0 0.1 0">
+        depth="0.1" 
+        height="0.1" 
+        width="0.1" 
+        position="0 0.05 0">
     </a-box>
     
   </a-entity>
 
-  <!-- Cámara AR -->
   <a-camera mindar-image-camera></a-camera>
 
 </a-scene>
