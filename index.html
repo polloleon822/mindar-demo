@@ -13,16 +13,17 @@
   <!-- Target de imagen -->
   <a-entity mindar-image-target="targetIndex: 0">
     
-    <!-- Modelo 3D anclado al target -->
+    <!-- Modelo 3D centrado sobre el target -->
     <a-entity 
         gltf-model="url(modelo.glb)" 
-        scale="3 3 3"   <!-- Ajusta según tamaño del modelo -->
-        position="0 -5 0"          <!-- Centrado sobre el target -->
+        scale="10 10 10"   <!-- Ajusta según el tamaño del modelo -->
+        position="0 0 0"          <!-- Centrado sobre la imagen -->
         rotation="0 180 0">
     </a-entity>
     
   </a-entity>
 
+  <!-- Cámara AR -->
   <a-camera mindar-image-camera></a-camera>
 
 </a-scene>
